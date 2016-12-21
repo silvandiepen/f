@@ -8,12 +8,10 @@
 (function(window, angular, undefined) {
   angular.module('f', [])
      .service('f', [function () {
-	     
-	        
-    var f = function f(){
-	    
-	    var random = function random(min, max){
-	      if(isArray(min)){
+
+    return {
+	    random: function (min, max){
+	      if(min.prop && min.prop.constructor === Array){
 	        return min[random(0,min.length)];
 	      } else {
 	        min = min === null? MIN_INT : min;
@@ -21,39 +19,30 @@
 	        var number = min + (max - min) * Math.random();
 	        return Math.ceil(number);
 	      }
-	    };
-	    
-	    
-	    var contains = function contains(needle) {
+	    },
+
+	    contains: function contains(needle) {
 			    // Per spec, the way to identify NaN is that it is not equal to itself
 			    var findNaN = needle !== needle;
 			    var indexOf;
-			
+
 			    if(!findNaN && typeof Array.prototype.indexOf === 'function') {
 			        indexOf = Array.prototype.indexOf;
 			    } else {
 			        indexOf = function(needle) {
 			            var i = -1, index = -1;
-			
 			            for(i = 0; i < this.length; i++) {
 			                var item = this[i];
-			
 			                if((findNaN && item !== item) || item === needle) {
 			                    index = i;
 			                    break;
 			                }
-			            }			
+			            }
 			            return index;
 			        };
-			    }	
+			    }
 			    return indexOf.call(this, needle) > -1;
-			};
-	    
-			return random && contains;
-	    
+			}
     };
-
-    return f;
-
 	}]);
 })(window, window.angular);
