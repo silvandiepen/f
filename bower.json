@@ -1,0 +1,23 @@
+{
+  "name": "f",
+  "main": "f.js",
+  "homepage": "https://github.com/silvandiepen/f",
+  "authors": [
+    "silvandiepen <me@silvandiepen.com>"
+  ],
+  "description": "multiple functions to use in projects",
+  "keywords": [
+    "function",
+    "ratio",
+    "random",
+    "contains"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
