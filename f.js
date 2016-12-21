@@ -10,14 +10,29 @@
      .service('f', [function () {
 
     return {
-	    random: function (min, max){
-	      if(min.prop && min.prop.constructor === Array){
-	        return min[random(0,min.length)];
-	      } else {
-	        min = min === null? MIN_INT : min;
-	        max = max === null? MAX_INT : max;
-	        var number = min + (max - min) * Math.random();
-	        return Math.ceil(number);
+	    random: function random(min, max){
+        // The actual function
+        function randomNumber(min,max){
+          min = min === null? MIN_INT : min;
+          max = max === null? MAX_INT : max;
+          var number = min + (max - min) * Math.random();
+          return Math.ceil(number);
+        }
+
+        // If given an array;
+	      if(typeof min === 'object'){
+          var chosenOne;
+          var chosenKey = randomNumber(0,(min.length-1));
+          min.forEach(function(value,key){
+            if(key === chosenKey){
+              chosenOne = value;
+            }
+          });
+          return chosenOne;
+	      }
+        // If its not an array / default function
+        else {
+          return randomNumber(min,max);
 	      }
 	    },
 
