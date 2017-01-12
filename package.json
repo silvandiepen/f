@@ -1,0 +1,23 @@
+{
+  "name": "ng-f",
+  "version": "1.0.0",
+  "description": "",
+  "main": "f.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/f.git"
+  },
+  "keywords": [
+    "javascript",
+    "functions"
+  ],
+  "author": "Sil van Diepen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silvandiepen/f/issues"
+  },
+  "homepage": "https://github.com/silvandiepen/f#readme"
+}
