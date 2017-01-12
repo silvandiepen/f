@@ -58,6 +58,7 @@
 			    }
 			    return indexOf.call(this, needle) > -1;
 			}
+
     };
 	}]);
 })(window, window.angular);
